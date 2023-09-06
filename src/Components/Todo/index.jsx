@@ -49,6 +49,7 @@ const Todo = () => {
     let incompleteCount = data.list.filter(item => !item.complete).length;
     setIncomplete(incompleteCount);
     document.title = `To Do List: ${incomplete}`;
+    localStorage.setItem('list', JSON.stringify(data.list))
     // linter will want 'incomplete' added to dependency array unnecessarily. 
     // disable code used to avoid linter warning 
     // eslint-disable-next-line react-hooks/exhaustive-deps 

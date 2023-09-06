@@ -8,7 +8,7 @@ export default function List({ list, toggleComplete, deleteItem }) {
 
     const [currentPage, setCurrentPage] = useState(1)
     const { settings } = useContext(SettingContext)
-
+    console.log(list)
     let toRenderList = settings.showDone ? list : list.filter(task => task.complete === false)
     let startIndex = settings.taskPerPage * (currentPage - 1)
     let endIndex = startIndex + settings.taskPerPage
