@@ -46,11 +46,11 @@ describe('Todo Component Tests', () => {
     fireEvent.click(addButton);
 
 
-    const doneButton = screen.getByTestId('btn-done');
-    fireEvent.click(doneButton);
+    const doneButton = screen.getAllByTestId('btn-done');
+    fireEvent.click(doneButton[0]);
 
 
-    expect(doneButton).toHaveTextContent('ToDo');
+    expect(doneButton[0]).toHaveTextContent('ToDo');
   });
 
   it('deletes a task when the "Delete" button is clicked', () => {
@@ -60,8 +60,8 @@ describe('Todo Component Tests', () => {
     fireEvent.change(screen.getByLabelText('To Do Item'), { target: { value: taskText } });
     fireEvent.click(addButton);
 
-    const deleteButton = screen.getByText('Delete');
-    fireEvent.click(deleteButton);
+    const deleteButton = screen.getAllByText('Delete');
+    fireEvent.click(deleteButton[0]);
 
     expect(screen.queryByText(taskText)).toBeNull();
   });
