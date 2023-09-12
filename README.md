@@ -10,11 +10,18 @@ This application provides the user a service where he can make a list of tasks t
 
 Netlify
 
-<https://deft-creponne-9c4b58.netlify.app/>
+<https://deft-creponne-9c4b58.netlify.app/> for main branch (currently phase 3, phase 4 is ready but not merged yet you can find the live url down below)
 
-SandBox
+SandBox phase 2
 
 <https://myxdsy.csb.app/>
+
+SandBox Phase 3 
+
+<https://7k9kzr.csb.app/>
+
+SandBox Phase 4
+<https://wyskwx.csb.app/>
 
 ## useForm
 
