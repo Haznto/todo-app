@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import cookie from 'react-cookies';
 import jwt_decode from 'jwt-decode';
 import { initialState, loginReducer } from '../../../hooks/Reducer/loginReducer';
+import axios from 'axios';
 
 const testUsers = {
     Admininistrator: {
@@ -52,10 +53,18 @@ function LoginProvider(props) {
     async function login(username, password) {
         console.log('running')
         let { loggedIn, token, user } = loginData;
-        let auth = testUsers[username];
-        console.log(auth)
+        let res = await axios.post('https://auth-api-fz5h.onrender.com/signin', {}, {
+            headers: { Authorization: `Basic ${btoa(`${username}:${password}`)}` }
+        })
+        console.log(res.data.message.user)
+        console.log(res.data.message.user.token)
+        // let auth = testUsers[username];
+        let auth = res.data.message.user
+        console.log(auth.token)
+        console.log(auth.password)
+        console.log(auth.username)
 
-        if (auth && auth.password === password) {
+        if (auth ) {
             try {
                 validateToken(auth.token);
             } catch (e) {
