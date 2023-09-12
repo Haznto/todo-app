@@ -8,7 +8,7 @@ export default function SignUp() {
     const [usernameS, setUsernameS] = useState('')
     const [passwordS, setPasswordS] = useState('')
     const [role, setRole] = useState('')
-    const { login, logout, loginData } = useContext(LoginContext)
+    const { login, loginData } = useContext(LoginContext)
     console.log(usernameS, passwordS)
     async function handleSignupSub(e) {
         e.preventDefault();

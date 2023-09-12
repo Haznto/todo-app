@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import useForm from '../../hooks/form';
 
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 import { Title, Grid, Flex, Button, TextInput, Text, Slider } from '@mantine/core';
 import List from '../List/List';
 import { ListContext } from '../Context/ListOfData/ListOfData';
@@ -15,7 +15,7 @@ import SignUp from '../SignupForm/SignupForm';
 
 const Todo = () => {
   // const listContext = React.createContext()
-  const [update, setUpdate] = useState([])
+  // const [update, setUpdate] = useState([])
   const [defaultValues] = useState({
     difficulty: 4,
   });
@@ -31,6 +31,7 @@ const Todo = () => {
     try {
       item.completed = false;
       const res = await axios.post(`https://auth-api-fz5h.onrender.com/todo`, item)
+      console.log(res)
 
       //  setState([...state, res.data.data]);
       dispatch({ type: 'changeList', payload: item });
@@ -61,7 +62,7 @@ const Todo = () => {
           try {
             item.id = id
             const res = await axios.put(`https://auth-api-fz5h.onrender.com/todo/${id}`, item)
-            setUpdate(res.data.data)
+            // setUpdate(res.data.data)
             console.log(res, "ehaaaaaaaaaaaaaaaaaaaaaaaaaaaabo")
           } catch (err) {
             console.log('update error', err);
