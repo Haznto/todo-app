@@ -79,7 +79,7 @@ const Todo = () => {
   async function getData() {
     try {
       const res = await axios.get('https://auth-api-fz5h.onrender.com/todo')
-      console.log(res.data.data);
+      // console.log(res.data.data);
       dispatch({ type: 'replaceList', payload: res.data.data })
     } catch (err) {
       console.log(err);
