@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Card, Text, Badge, Button, Flex, Pagination } from '@mantine/core';
 import { SettingContext } from '../Context/Settings/Settings'
+import Auth from '../auth/Auth';
 
 
 
@@ -26,7 +27,9 @@ export default function List({ list, toggleComplete, deleteItem }) {
                                 <Text>Assigned to: {item.assignee}</Text>
                                 <Text>Difficulty: {item.difficulty}</Text>
                                 <Badge data-testid='btn-done' color={item.complete ? 'green' : 'pink'} variant="light" onClick={() => toggleComplete(item.id)}> {item.complete ? 'Done' : 'ToDo'}</Badge>
-                                <Button onClick={() => { deleteItem(item.id) }} color='red'>Delete</Button>
+                                <Auth capability="delete">
+                                    <Button onClick={() => { deleteItem(item.id) }} color='red'>Delete</Button>
+                                </Auth>
                             </Flex>
                         </Card.Section>
                     </Card>
