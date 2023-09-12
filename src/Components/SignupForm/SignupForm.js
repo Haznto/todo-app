@@ -46,7 +46,7 @@ export default function SignUp() {
                     <Flex direction={'column'} m={'20px'} gap={'10px'} justify={Center} align={Center}>
                         <Input onChange={handleUnChange} placeholder='username' required />
                         <Input onChange={handlePwChange} placeholder='password' required type='password' />
-                        <Input onChange={handleRoleChange} placeholder='role' required type='text' />
+                        <Input onChange={handleRoleChange} placeholder='role(admin,writer,editor,user)' required type='text' />
                         <Button type='submit'>SignUp</Button>
                     </Flex>
                 </form>
