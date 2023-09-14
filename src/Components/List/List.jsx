@@ -10,7 +10,7 @@ export default function List({ list, toggleComplete, deleteItem }) {
     const [currentPage, setCurrentPage] = useState(1)
     const { settings } = useContext(SettingContext)
     console.log(list)
-    let toRenderList = settings.showDone ? list : list.filter(task => task.complete === false)
+    let toRenderList = settings.showDone ? list : list.filter(task => task.completed === false)
     let startIndex = settings.taskPerPage * (currentPage - 1)
     let endIndex = startIndex + settings.taskPerPage
     let currentPageRender = toRenderList ? toRenderList.slice(startIndex, endIndex) : []
@@ -26,7 +26,7 @@ export default function List({ list, toggleComplete, deleteItem }) {
                                 <Text>Task: {item.text}</Text>
                                 <Text>Assigned to: {item.assignee}</Text>
                                 <Text>Difficulty: {item.difficulty}</Text>
-                                <Badge data-testid='btn-done' color={item.complete ? 'green' : 'pink'} variant="light" onClick={() => toggleComplete(item.id)}> {item.complete ? 'Done' : 'ToDo'}</Badge>
+                                <Badge data-testid='btn-done' color={item.completed ? 'green' : 'pink'} variant="light" onClick={() => toggleComplete(item.id)}> {item.completed ? 'Done' : 'ToDo'}</Badge>
                                 <Auth capability="delete">
                                     <Button onClick={() => { deleteItem(item.id) }} color='red'>Delete</Button>
                                 </Auth>
@@ -39,4 +39,5 @@ export default function List({ list, toggleComplete, deleteItem }) {
             }
         </div>
     )
+
 }

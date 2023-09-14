@@ -24,6 +24,7 @@
     "@tiptap/extension-link": "^2.1.7",
     "@tiptap/react": "^2.1.7",
     "@tiptap/starter-kit": "^2.1.7",
+    "axios": "^1.5.0",
     "dayjs": "^1.11.9",
     "embla-carousel-react": "^7.1.0",
     "jwt-decode": "^3.1.2",
@@ -60,5 +61,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!axios).+\\.js$"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy",
+      "axios": "axios/dist/node/axios.cjs"
+    }
   }
 }
